@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Activities.TextEditorActivity"
+    tools:showIn="@layout/activity_text_editor_activity">
+
+
+    <LinearLayout
+        android:id="@+id/text_editor_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <org.soletluna.amazepicture.SquareLayout
+            android:id="@+id/text_editor_square_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:id="@+id/image_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </org.soletluna.amazepicture.SquareLayout>
+
+        <RelativeLayout
+            android:id="@+id/text_editor_options_layout"
+            android:background="@color/primary_dark"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            android:clipChildren="false"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true" >
+
+            <!-- Bottom Tabs -->
+            <LinearLayout
+                android:id="@+id/text_editor_tabs"
+                android:background="@color/primary"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true">
+
+                <!-- Text -->
+                <RelativeLayout
+                    android:id="@+id/text_editor_text_tab"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:onClick="tabSelected">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_tune"/>
+
+                    <RelativeLayout
+                        android:id="@+id/text_options_tab_accent"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/accent"/>
+
+                </RelativeLayout>
+
+                <!-- Size/Rotate -->
+                <RelativeLayout
+                    android:id="@+id/text_editor_size_rotate_tab"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:onClick="tabSelected">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_transform"/>
+
+                    <RelativeLayout
+                        android:id="@+id/size_rotate_tab_accent"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/accent"/>
+
+                </RelativeLayout>
+
+                <!-- Color -->
+                <RelativeLayout
+                    android:id="@+id/text_editor_color_tab"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:onClick="tabSelected">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_palette"/>
+
+                    <RelativeLayout
+                        android:id="@+id/color_tab_accent"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/accent"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!-- TEXT OPTIONS -->
+            <RelativeLayout
+                android:id="@+id/text_editor_text_options_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/text_editor_tabs">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/activity_horizontal_margin"
+                    android:orientation="vertical"
+                    android:layout_centerInParent="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/option_padding"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.1"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:src="@drawable/ic_edit_text"/>
+
+                        <EditText
+                            android:id="@+id/text_editor_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.9"
+                            android:textColor="@color/primary_text"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:hint="Text"/>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:gravity="center">
+                            <CheckBox
+                                android:id="@+id/text_editor_bold_checkbox"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/primary_text"
+                                android:text="Bold"
+                                android:gravity="center"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:gravity="center">
+                            <CheckBox
+                                android:id="@+id/text_editor_italic_checkbox"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/primary_text"
+                                android:text="Italic"/>
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- SIZE ROTATE OPTIONS -->
+            <RelativeLayout
+                android:id="@+id/text_editor_size_rotate_options_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/text_editor_tabs">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/activity_horizontal_margin"
+                    android:orientation="vertical"
+                    android:layout_centerInParent="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/option_padding"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.1"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:src="@drawable/ic_font_size"/>
+
+                        <SeekBar
+                            android:id="@+id/text_editor_size_seekbar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.9"
+                            android:max="180"
+                            android:indeterminate="false" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.1"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:src="@drawable/ic_rotate_white"/>
+
+                        <SeekBar
+                            android:id="@+id/text_editor_rotate_seekbar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.9"
+                            android:max="360"/>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- COLOR OPTIONS -->
+            <RelativeLayout
+                android:id="@+id/text_editor_color_options_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/text_editor_tabs"
+                android:visibility="gone">
+
+                <!--COLOR SLIDER-->
+                <HorizontalScrollView
+                    android:id="@+id/color_scroll_view"
+                    android:scrollbars="none"
+                    android:layout_centerInParent="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/color_layout"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <!-- Colors go here -->
+                        <Button
+                            android:id="@+id/white_button"
+                            android:onClick="setTextViewColor"
+                            android:background="@color/white"
+                            android:layout_margin="@dimen/color_padding"
+                            android:layout_width="@dimen/color_button_width"
+                            android:layout_height="@dimen/color_button_height" />
+
+                        <Button
+                            android:id="@+id/black_button"
+                            android:onClick="setTextViewColor"
+                            android:background="@color/black"
+                            android:layout_margin="@dimen/color_padding"
+                            android:layout_width="@dimen/color_button_width"
+                            android:layout_height="@dimen/color_button_height" />
+
+                        <Button
+                            android:id="@+id/red_button"
+                            android:onClick="setTextViewColor"
+                            android:background="@color/red"
+                            android:layout_margin="@dimen/color_padding"
+                            android:layout_width="@dimen/color_button_width"
+                            android:layout_height="@dimen/color_button_height" />
+
+                        <Button
+                            android:id="@+id/orange_button"
+                            android:onClick="setTextViewColor"
+                            android:background="@color/orange"
+                            android:layout_margin="@dimen/color_padding"
+                            android:layout_width="@dimen/color_button_width"
+                            android:layout_height="@dimen/color_button_height" />
+
+                        <Button
+                            android:id="@+id/yellow_button"
+                            android:onClick="setTextViewColor"
+                            android:background="@color/yellow"
+                            android:layout_margin="@dimen/color_padding"
+                            android:layout_width="@dimen/color_button_width"
+                            android:layout_height="@dimen/color_button_height" />
+
+                        <Button
+                            android:id="@+id/yellow_green_button"
+                            android:onClick="setTextViewColor"
+                            android:background="@color/yellow_green"
+                            android:layout_margin="@dimen/color_padding"
+                            android:layout_width="@dimen/color_button_width"
+                            android:layout_height="@dimen/color_button_height" />
+
+                        <Button
+                            android:id="@+id/green_button"
+                            android:onClick="setTextViewColor"
+                            android:background="@color/green"
+                            android:layout_margin="@dimen/color_padding"
+                            android:layout_width="@dimen/color_button_width"
+                            android:layout_height="@dimen/color_button_height" />
+
+                        <Button
+                            android:id="@+id/green_blue_button"
+                            android:onClick="setTextViewColor"
+                            android:background="@color/green_blue"
+                            android:layout_margin="@dimen/color_padding"
+                            android:layout_width="@dimen/color_button_width"
+                            android:layout_height="@dimen/color_button_height" />
+
+                        <Button
+                            android:id="@+id/baby_blue_button"
+                            android:onClick="setTextViewColor"
+                            android:background="@color/baby_blue"
+                            android:layout_margin="@dimen/color_padding"
+                            android:layout_width="@dimen/color_button_width"
+                            android:layout_height="@dimen/color_button_height" />
+
+                        <Button
+                            android:id="@+id/blue_green_button"
+                            android:onClick="setTextViewColor"
+                            android:background="@color/blue_green"
+                            android:layout_margin="@dimen/color_padding"
+                            android:layout_width="@dimen/color_button_width"
+                            android:layout_height="@dimen/color_button_height" />
+
+                        <Button
+                            android:id="@+id/blue_button"
+                            android:onClick="setTextViewColor"
+                            android:background="@color/blue"
+                            android:layout_margin="@dimen/color_padding"
+                            android:layout_width="@dimen/color_button_width"
+                            android:layout_height="@dimen/color_button_height" />
+
+                        <Button
+                            android:id="@+id/purple_button"
+                            android:onClick="setTextViewColor"
+                            android:background="@color/purple"
+                            android:layout_margin="@dimen/color_padding"
+                            android:layout_width="@dimen/color_button_width"
+                            android:layout_height="@dimen/color_button_height" />
+
+                        <Button
+                            android:id="@+id/magenta_button"
+                            android:onClick="setTextViewColor"
+                            android:background="@color/magenta"
+                            android:layout_margin="@dimen/color_padding"
+                            android:layout_width="@dimen/color_button_width"
+                            android:layout_height="@dimen/color_button_height" />
+
+                        <Button
+                            android:id="@+id/dark_magenta_button"
+                            android:onClick="setTextViewColor"
+                            android:background="@color/dark_magenta"
+                            android:layout_margin="@dimen/color_padding"
+                            android:layout_width="@dimen/color_button_width"
+                            android:layout_height="@dimen/color_button_height" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Amaze Picture</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_continue">Continue</string>
+    <string name="save_image">Save</string>
+    <string name="share_image">Share</string>
+
+    <string name="title_activity_image_adjustments">Image Adjustments</string>
+    <string name="title_activity_text_editor">Editor</string>
+
+    <string name="storage_permission_explanation">
+        Storage permissions must be granted to save or share pictures.
+    </string>
+    <string name="title_activity_select_image_activity_new">SelectImageActivityNew</string>
+    <string name="title_activity_image_adjustment_activity_new">ImageAdjustmentActivityNew</string>
+    <string name="title_activity_text_editor_activity_new">TextEditorActivityNew</string>
+
+</resources>

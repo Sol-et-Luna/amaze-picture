@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context=".Activities.TextEditorActivity">
+
+      <item
+          android:id="@+id/save_image"
+          android:title="@string/save_image"
+          android:icon="@drawable/ic_save"
+          android:orderInCategory="100"
+          app:showAsAction="always"/>
+
+      <item
+          android:id="@+id/share_image"
+          android:title="@string/share_image"
+          android:icon="@drawable/ic_share"
+          android:orderInCategory="100"
+          app:showAsAction="always"/>
+</menu>

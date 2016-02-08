@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme -->
+    <color name="primary">#607D8B</color>
+    <color name="primary_dark">#455A64</color>
+    <color name="primary_light">#CFD8DC</color>
+    <color name="accent">#FFC107</color>
+    <color name="primary_text">#FFFFFF</color>
+    <color name="secondary_text">#727272</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#B6B6B6</color>
+
+    <!-- Color choices for text -->
+    <color name="white">#FFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="orange">#FF8000</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="yellow_green">#80FF00</color>
+    <color name="green">#00FF00</color>
+    <color name="green_blue">#00FF80</color>
+    <color name="baby_blue">#00FFFF</color>
+    <color name="blue_green">#0080FF</color>
+    <color name="blue">#0000FF</color>
+    <color name="purple">#7F00FF</color>
+    <color name="magenta">#FF00FF</color>
+    <color name="dark_magenta">#FF007F</color>
+    <color name="grey">#808080</color>
+    <color name="black">#000000</color>
+</resources>
