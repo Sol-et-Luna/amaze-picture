@@ -1,12 +1,10 @@
-package org.soletluna.amazepicture.Utils;
+package org.soletluna.amazepicture.util;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.ViewGroup;
@@ -18,7 +16,7 @@ import java.io.FileOutputStream;
 /**
  * Created by poo on 11/1/2015.
  */
-public class Utils
+public class Util
 {
     public static Bitmap layoutToBitmap (ViewGroup layout)
     {

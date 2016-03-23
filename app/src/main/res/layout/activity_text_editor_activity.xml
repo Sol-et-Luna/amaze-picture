@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".Activities.TextEditorActivity">
+    tools:context=".activities.TextEditorActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -49,6 +49,7 @@
                 android:id="@+id/image_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
+
         </org.soletluna.amazepicture.SquareLayout>
 
         <RelativeLayout
@@ -217,9 +218,11 @@
                                 android:textColor="@color/primary_text"
                                 android:text="Italic"/>
                         </RelativeLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
+
             </RelativeLayout>
 
             <!-- SIZE ROTATE OPTIONS -->
@@ -279,8 +282,8 @@
                             android:max="360"/>
                     </LinearLayout>
 
-
                 </LinearLayout>
+
             </RelativeLayout>
 
             <!-- COLOR OPTIONS -->
@@ -418,6 +421,7 @@
                             android:layout_width="@dimen/color_button_width"
                             android:layout_height="@dimen/color_button_height" />
                     </LinearLayout>
+
                 </HorizontalScrollView>
 
             </RelativeLayout>

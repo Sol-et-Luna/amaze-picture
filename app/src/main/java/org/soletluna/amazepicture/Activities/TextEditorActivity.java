@@ -1,4 +1,4 @@
-package org.soletluna.amazepicture.Activities;
+package org.soletluna.amazepicture.activities;
 
 import android.Manifest;
 import android.content.Context;
@@ -41,8 +41,8 @@ import android.widget.TextView;
 import org.soletluna.amazepicture.R;
 import org.soletluna.amazepicture.SquareLayout;
 import org.soletluna.amazepicture.TextLayout;
-import org.soletluna.amazepicture.Utils.ComicSansFunctions;
-import org.soletluna.amazepicture.Utils.Utils;
+import org.soletluna.amazepicture.util.ComicSansUtil;
+import org.soletluna.amazepicture.util.Util;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -82,7 +82,7 @@ public class TextEditorActivity extends AppCompatActivity
 
         // Set toolbar font
         TextView toolbarText = (TextView) toolbar.findViewById(R.id.toolbar_text);
-        ComicSansFunctions.changeToComicSans(toolbarText, getAssets());
+        ComicSansUtil.changeToComicSans(toolbarText, getAssets());
 
         squareLayout = (SquareLayout) findViewById(R.id.text_editor_square_layout);
         ImageView imageView = (ImageView) findViewById(R.id.image_view);
@@ -128,8 +128,8 @@ public class TextEditorActivity extends AppCompatActivity
                 getLastTouched().setFocus(false);
             }
 
-            Utils.externalSaveJPGFromBitmap(Utils.layoutToBitmap(squareLayout), AMAZE_PIC_DIR,
-                    Utils.getCurrentTimeJPGString(),
+            Util.externalSaveJPGFromBitmap(Util.layoutToBitmap(squareLayout), AMAZE_PIC_DIR,
+                    Util.getCurrentTimeJPGString(),
                     getContentResolver(),
                     true);
 
@@ -143,7 +143,7 @@ public class TextEditorActivity extends AppCompatActivity
             // Snackbar to comic sans
             View view = snackbar.getView();
             TextView tv = (TextView) view.findViewById(android.support.design.R.id.snackbar_text);
-            ComicSansFunctions.changeToComicSans(tv, getAssets());
+            ComicSansUtil.changeToComicSans(tv, getAssets());
 
             snackbar.show();
         }
@@ -154,9 +154,9 @@ public class TextEditorActivity extends AppCompatActivity
                 getLastTouched().setFocus(false);
             }
 
-            shareBitmapAsJPG(Utils.layoutToBitmap(squareLayout),
+            shareBitmapAsJPG(Util.layoutToBitmap(squareLayout),
                     AMAZE_PIC_DIR,
-                    Utils.getCurrentTimeJPGString());
+                    Util.getCurrentTimeJPGString());
 
             if (getLastTouched() != null)
             {
@@ -206,7 +206,7 @@ public class TextEditorActivity extends AppCompatActivity
                 View view = snackbar.getView();
                 TextView tv = (TextView) view.findViewById(
                         android.support.design.R.id.snackbar_text);
-                ComicSansFunctions.changeToComicSans(tv, getAssets());
+                ComicSansUtil.changeToComicSans(tv, getAssets());
 
                 snackbar.show();
             }
@@ -257,7 +257,7 @@ public class TextEditorActivity extends AppCompatActivity
         };
 
         editText.addTextChangedListener(watcher);
-        ComicSansFunctions.changeToComicSans(editText, getAssets());
+        ComicSansUtil.changeToComicSans(editText, getAssets());
 
         //========== Init Text Size Seek Bar ==========
         textSizeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener()
@@ -307,8 +307,8 @@ public class TextEditorActivity extends AppCompatActivity
         });
 
         //========== Style Checkboxes ==========
-        ComicSansFunctions.changeToComicSansBold(bold, getAssets());
-        ComicSansFunctions.changeToComicSansItalic(italic, getAssets());
+        ComicSansUtil.changeToComicSansBold(bold, getAssets());
+        ComicSansUtil.changeToComicSansItalic(italic, getAssets());
 
         bold.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
         {
@@ -318,13 +318,13 @@ public class TextEditorActivity extends AppCompatActivity
                 if (getLastTouched() != null)
                 {
                     if (isChecked && !italic.isChecked())
-                        ComicSansFunctions.changeToComicSansBold(getLastTouched(), getAssets());
+                        ComicSansUtil.changeToComicSansBold(getLastTouched(), getAssets());
                     else if (isChecked && italic.isChecked())
-                        ComicSansFunctions.changeToComicSansBoldItalics(getLastTouched(), getAssets());
+                        ComicSansUtil.changeToComicSansBoldItalics(getLastTouched(), getAssets());
                     else if (!isChecked && italic.isChecked())
-                        ComicSansFunctions.changeToComicSansItalics(getLastTouched(), getAssets());
+                        ComicSansUtil.changeToComicSansItalics(getLastTouched(), getAssets());
                     else
-                        ComicSansFunctions.changeToComicSans(getLastTouched(), getAssets());
+                        ComicSansUtil.changeToComicSans(getLastTouched(), getAssets());
                 }
             }
         });
@@ -337,13 +337,13 @@ public class TextEditorActivity extends AppCompatActivity
                 if (getLastTouched() != null)
                 {
                     if (isChecked && !bold.isChecked())
-                        ComicSansFunctions.changeToComicSansItalics(getLastTouched(), getAssets());
+                        ComicSansUtil.changeToComicSansItalics(getLastTouched(), getAssets());
                     else if (isChecked && bold.isChecked())
-                        ComicSansFunctions.changeToComicSansBoldItalics(getLastTouched(), getAssets());
+                        ComicSansUtil.changeToComicSansBoldItalics(getLastTouched(), getAssets());
                     else if (!isChecked && bold.isChecked())
-                        ComicSansFunctions.changeToComicSansBold(getLastTouched(), getAssets());
+                        ComicSansUtil.changeToComicSansBold(getLastTouched(), getAssets());
                     else
-                        ComicSansFunctions.changeToComicSans(getLastTouched(), getAssets());
+                        ComicSansUtil.changeToComicSans(getLastTouched(), getAssets());
                 }
             }
         });
@@ -354,7 +354,7 @@ public class TextEditorActivity extends AppCompatActivity
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
         sharingIntent.setType("image/*");
 
-        Utils.externalSaveJPGFromBitmap(bitmap, tempFileDirectory, tempFileName,
+        Util.externalSaveJPGFromBitmap(bitmap, tempFileDirectory, tempFileName,
                 getContentResolver(), true);
 
         File file = new File(Environment.getExternalStorageDirectory() + "/" + tempFileDirectory
@@ -421,12 +421,12 @@ public class TextEditorActivity extends AppCompatActivity
         // Text view
         TextView title = new TextView(this);
         title.setText("\n    Delete \"" + getLastTouched().getTextView().getText() + "\"?");
-        ComicSansFunctions.changeToComicSansBold(title, getAssets());
+        ComicSansUtil.changeToComicSansBold(title, getAssets());
         title.setTextSize(18);
         title.setTextColor(Color.BLACK);
 
         // Dialog
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.DeleteDialogStyle);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCustomTitle(title);
         builder.setPositiveButton("Delete", new DialogInterface.OnClickListener()
         {
@@ -442,8 +442,8 @@ public class TextEditorActivity extends AppCompatActivity
         Button okayButton   = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
         Button cancelButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
 
-        ComicSansFunctions.changeToComicSans(okayButton, getAssets());
-        ComicSansFunctions.changeToComicSans(cancelButton, getAssets());
+        ComicSansUtil.changeToComicSans(okayButton, getAssets());
+        ComicSansUtil.changeToComicSans(cancelButton, getAssets());
     }
 
     private void backDialog()
@@ -451,11 +451,11 @@ public class TextEditorActivity extends AppCompatActivity
         // Text view
         TextView title = new TextView(this);
         title.setText("\n    Exit editor?");
-        ComicSansFunctions.changeToComicSansBold(title, getAssets());
+        ComicSansUtil.changeToComicSansBold(title, getAssets());
         title.setTextSize(18);
         title.setTextColor(Color.BLACK);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.DeleteDialogStyle);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCustomTitle(title);
         builder.setPositiveButton("Okay", new DialogInterface.OnClickListener()
         {
@@ -470,8 +470,8 @@ public class TextEditorActivity extends AppCompatActivity
         Button okayButton   = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
         Button cancelButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
 
-        ComicSansFunctions.changeToComicSans(okayButton, getAssets());
-        ComicSansFunctions.changeToComicSans(cancelButton, getAssets());
+        ComicSansUtil.changeToComicSans(okayButton, getAssets());
+        ComicSansUtil.changeToComicSans(cancelButton, getAssets());
     }
 
     private void back()
@@ -489,7 +489,7 @@ public class TextEditorActivity extends AppCompatActivity
         // Set seekbars n stuff
         editText.setText(textView.getText());
         editText.setSelection(textView.getText().length());
-        textSizeSeekBar.setProgress((int) Utils.pxToDp(textView.getTextSize(),
+        textSizeSeekBar.setProgress((int) Util.pxToDp(textView.getTextSize(),
                 getApplicationContext()));
         rotateTextSeekBar.setProgress((int) textLayout.getRotation() + 180);
 
@@ -698,7 +698,7 @@ public class TextEditorActivity extends AppCompatActivity
         textLayout.getTextView().setTextColor(getResources().getColor(R.color.white));
         textLayout.getTextView().setText(getRandomText());
         textLayout.getTextView().setTextSize(24);
-        ComicSansFunctions.changeToComicSans(textLayout, getAssets());
+        ComicSansUtil.changeToComicSans(textLayout, getAssets());
 
         // Add textLayout
         squareLayout.addView(textLayout.getBigDaddy());

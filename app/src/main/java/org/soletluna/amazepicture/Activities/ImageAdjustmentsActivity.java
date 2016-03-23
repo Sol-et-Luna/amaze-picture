@@ -1,4 +1,4 @@
-package org.soletluna.amazepicture.Activities;
+package org.soletluna.amazepicture.activities;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -15,8 +15,8 @@ import android.widget.TextView;
 import org.soletluna.amazepicture.R;
 import org.soletluna.amazepicture.SquareLayout;
 import org.soletluna.amazepicture.TouchImageView;
-import org.soletluna.amazepicture.Utils.ComicSansFunctions;
-import org.soletluna.amazepicture.Utils.Utils;
+import org.soletluna.amazepicture.util.ComicSansUtil;
+import org.soletluna.amazepicture.util.Util;
 
 import java.io.IOException;
 
@@ -38,7 +38,7 @@ public class ImageAdjustmentsActivity extends AppCompatActivity
 
         // Set toolbar font
         TextView toolbarText = (TextView) toolbar.findViewById(R.id.toolbar_text);
-        ComicSansFunctions.changeToComicSans(toolbarText, getAssets());
+        ComicSansUtil.changeToComicSans(toolbarText, getAssets());
 
         squareLayout = (SquareLayout) findViewById(R.id.image_adjustments_square_layout);
         mainImage = (TouchImageView) findViewById(R.id.image_view);
@@ -83,8 +83,8 @@ public class ImageAdjustmentsActivity extends AppCompatActivity
         if (id == R.id.action_continue)
         {
             // Continue to Text Editor
-            Bitmap bitmap = Utils.layoutToBitmap(squareLayout);
-            Utils.internalSaveJPGFromBitmap(bitmap, TEMP, getApplicationContext());
+            Bitmap bitmap = Util.layoutToBitmap(squareLayout);
+            Util.internalSaveJPGFromBitmap(bitmap, TEMP, getApplicationContext());
 
             Intent intent = new Intent(this, TextEditorActivity.class);
 

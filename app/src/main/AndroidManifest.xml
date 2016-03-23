@@ -15,7 +15,7 @@
 
         <!-- SELECT IMAGE -->
         <activity
-            android:name=".Activities.SelectImageActivity"
+            android:name=".activities.SelectImageActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -27,12 +27,12 @@
 
         <!-- IMAGE ADJUSTMENTS -->
         <activity
-            android:name=".Activities.ImageAdjustmentsActivity"
+            android:name=".activities.ImageAdjustmentsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.SelectImageActivity"/>
+                android:value=".activities.SelectImageActivity"/>
 
             <intent-filter>
                 <action android:name="android.intent.action.SEND"/>
@@ -45,12 +45,12 @@
 
         <!-- TEXT EDITOR -->
         <activity
-            android:name=".Activities.TextEditorActivity"
+            android:name=".activities.TextEditorActivity"
             android:theme="@style/AppTheme.NoActionBar.FullScreen"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.SelectImageActivity"/>
+                android:value=".activities.SelectImageActivity"/>
         </activity>
     </application>
 

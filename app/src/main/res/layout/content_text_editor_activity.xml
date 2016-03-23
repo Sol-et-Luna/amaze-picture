@@ -6,9 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".Activities.TextEditorActivity"
+    tools:context=".activities.TextEditorActivity"
     tools:showIn="@layout/activity_text_editor_activity">
-
 
     <LinearLayout
         android:id="@+id/text_editor_linear_layout"
@@ -27,6 +26,7 @@
                 android:id="@+id/image_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
+
         </org.soletluna.amazepicture.SquareLayout>
 
         <RelativeLayout
@@ -161,8 +161,8 @@
                             android:maxLines="1"
                             android:singleLine="true"
                             android:hint="Text"/>
-                    </LinearLayout>
 
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -181,6 +181,7 @@
                                 android:textColor="@color/primary_text"
                                 android:text="Bold"
                                 android:gravity="center"/>
+
                         </RelativeLayout>
 
                         <RelativeLayout
@@ -194,10 +195,13 @@
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/primary_text"
                                 android:text="Italic"/>
+
                         </RelativeLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
+
             </RelativeLayout>
 
             <!-- SIZE ROTATE OPTIONS -->
@@ -255,10 +259,11 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.9"
                             android:max="360"/>
+
                     </LinearLayout>
 
-
                 </LinearLayout>
+
             </RelativeLayout>
 
             <!-- COLOR OPTIONS -->
@@ -396,6 +401,7 @@
                             android:layout_width="@dimen/color_button_width"
                             android:layout_height="@dimen/color_button_height" />
                     </LinearLayout>
+
                 </HorizontalScrollView>
 
             </RelativeLayout>

@@ -1,4 +1,4 @@
-package org.soletluna.amazepicture.Activities;
+package org.soletluna.amazepicture.activities;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import org.soletluna.amazepicture.R;
-import org.soletluna.amazepicture.Utils.ComicSansFunctions;
+import org.soletluna.amazepicture.util.ComicSansUtil;
 
 public class SelectImageActivity extends AppCompatActivity
 {
@@ -27,7 +27,7 @@ public class SelectImageActivity extends AppCompatActivity
 
         // Set toolbar font
         TextView toolbarText = (TextView) toolbar.findViewById(R.id.toolbar_text);
-        ComicSansFunctions.changeToComicSans(toolbarText, getAssets());
+        ComicSansUtil.changeToComicSans(toolbarText, getAssets());
     }
 
     @Override

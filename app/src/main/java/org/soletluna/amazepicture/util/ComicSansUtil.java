@@ -1,4 +1,4 @@
-package org.soletluna.amazepicture.Utils;
+package org.soletluna.amazepicture.util;
 
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
@@ -6,14 +6,13 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.soletluna.amazepicture.TextLayout;
 
 /**
  * Created by David on 9/17/2014.
  */
-public class ComicSansFunctions
+public class ComicSansUtil
 {
     public static void changeToComicSans(TextLayout textLayout, AssetManager asset)
     {
